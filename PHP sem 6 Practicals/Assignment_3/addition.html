@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<script language="javascript">
+			var f1;
+			var f2;
+			function show_prompt()
+			{
+				f1=parseInt(prompt("Enter first number","first"));
+				f2=parseInt(prompt("Enter second number","second"));
+                var sum;
+                sum=f1+f2;
+				if(f1!=null && f2!=null)
+				{
+					document.getElementById("demo").innerHTML="Sum of the number is: "+sum;
+				}
+			}
+
+			function show_confirm()
+			{
+                var sum;
+                sum=f1+f2;
+				var r=confirm("Sum of the numbers is:" +sum);
+				if(r==true)
+				{
+					document.write("You pressed OK!");
+				}
+				else
+				{
+					document.write("Your pressed Cancel!");
+				}
+			}
+
+			function show_alert()
+			{
+				var sum;
+				sum=f1+f2;
+
+				alert("Sum of the numbers is: "+sum);
+			}
+
+		</script>
+	</head>
+	<body>
+		<button onclick="show_prompt()">Prompt</button><br><br>
+        <p id="demo"></p>
+		<button onclick="show_confirm()">Confirm</button><br><br>
+		<input type="button" onclick="show_alert()" value="Show Alert">
+	</body>
+</html>

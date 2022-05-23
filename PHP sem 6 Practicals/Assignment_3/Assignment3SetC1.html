@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+ 	<script type = "text/javascript">
+  function myFunction()
+  {
+      var x = document.getElementById("pass").value;
+      if(x != null && x !="")
+      {
+	document.getElementById("pass").style.color="red";
+	document.getElementById("pass").style.fontSize="18px";
+      }
+      else
+      {
+
+	document.getElementById("myImg").height += 5;
+ 	 document.getElementById("myImg").width += 5;
+	
+      }
+ }
+ 
+	
+	</script>
+<img align="center" src="https://lexus-cms-media.s3.us-east-2.amazonaws.com/wp-content/uploads/2021/10/Kingo_Lexus_IS350.jpg" width="300" height="300" id="myImg"> 
+Enter Student Name <input type = "text" onclick="myFunction()" name = "x" id = "pass"><br>
+ <button onclick = "myFunction()">Click</button>
+</body>
+</html>

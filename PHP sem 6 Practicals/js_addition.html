@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script language="javascript">
+			function disp_prompt()
+		{
+			var n1=parseInt(prompt("Enter first number: "))
+			var n2=parseInt(prompt("Enter second number: "))
+			var r=confirm("You want add this two numbers")
+			if(r==true)
+			{
+				var sum=n1+n2
+				alert("Addition is :"+sum)
+			}
+			else
+			{
+				document.write("You pressed Cancel!")			
+			}
+		}
+		</script>
+	</head>
+	<body>
+				<input type="button" onclick="disp_prompt()" value="Press for Enter two numbers ">
+	</body>
+</html>

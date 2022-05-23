@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	 $(document).ready(function(){
+         $("#button1").click(function(){
+	 $("img").before("<b>Lexus</b>");
+	 });
+
+	 $("#button2").click(function(){
+	 $("img").after("<b>Kingo edition</b>");
+	 });
+
+	 });
+
+</script>
+</head>
+<body>
+  
+	 <img align="center" src="https://lexus-cms-media.s3.us-east-2.amazonaws.com/wp-content/uploads/2021/10/Kingo_Lexus_IS350.jpg" width="300" height="300"> 
+ 
+
+<br><button id = "button1">Add content Before</button>
+<button id = "button2">Add content After</button>
+</body>
+</html>
