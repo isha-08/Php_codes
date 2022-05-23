@@ -1,0 +1,159 @@
+//page hitted no. of times using cookies....
+<html> 
+  <head> 
+    <title>PHP Code to Count Number of Visitors Using Cookies: PHPCODER</title> 
+ </head> 
+<body> 
+<?php 
+if (!isset($_COOKIE['count'])) { 
+  echo "Welcome! This is the first time you have viewed this page."; 
+  $cookie = 1;
+  setcookie("count", $cookie);
+}else{
+  $cookie = ++$_COOKIE['count'];
+  setcookie("count", $cookie); 
+  echo "You have viewed this page ".$_COOKIE['count']." times."; 
+  }
+?> 
+  </body> 
+</html>
+
+
+////java script addition of two numbers prompt box, alert box and confirm box
+<html>
+	<head>
+		<script language="javascript">
+			function disp_prompt()
+		{
+			var n1=parseInt(prompt("Enter first number: "))
+			var n2=parseInt(prompt("Enter second number: "))
+			var r=confirm("You want add this two numbers")
+			if(r==true)
+			{
+				var sum=n1+n2
+				alert("Addition is :"+sum)
+			}
+			else
+			{
+				document.write("You pressed Cancel!")			
+			}
+		}
+		</script>
+	</head>
+	<body>
+				<input type="button" onclick="disp_prompt()" value="Press for Enter two numbers ">
+	</body>
+</html>
+
+
+
+
+
+
+Write a Ajax program to search Student Name according to the character typed and display list using
+array.
+Create name.php file
+<?php
+$n=$_GET['n'];
+$a=array();
+$a[]="sonal";
+$a[]="sanjay";
+$a[]="anant";
+$a[]=”anushka”
+$a[]=”kajal”
+echo "List of Names=<br>";
+foreach($a as $v)
+{
+$s=substr($v,0,strlen($n));
+if($s===$n)
+echo "$v<br>";
+
+}
+?>
+
+
+Create Ajax.php file:
+<html><body>
+<script type="text/javascript">
+function display()
+{
+var x= new XMLHttpRequest();
+var n= document.getElementById('n').value;
+x.open("GET", "name.php?n="+n, true);
+x.send( );
+x.onreadystatechange = function()
+{
+if(x.readyState == 4 && x.status==200)
+{
+document.getElementById("show").innerHTML = x.responseText;
+}
+}
+}
+</script>
+Search Box: <input type="text" name='n' id='n' onkeyup="display()"> <br>
+<h1 id="show"> </h1>
+</body>
+</html>
+Output :
+Run ajax.php file on browser enter character in text box and see output
+
+
+
+Example 2:
+Write AJAX program to print movie details by selecting an Actor’s name. Create tables Movie and Actor
+with 1:M cardinality as follows:
+Movie (mno,mname, release_year)
+Actor (ano,aname)
+[Use PostgreSQL]
+Solution :
+
+Ajax file : create majax.php
+<html>
+<body>
+<script type="text/javascript">
+function display()
+{
+
+var x= new XMLHttpRequest();
+var n= document.getElementById('n').value;
+x.open("GET", "actor.php?n="+n, true);
+x.send( );
+x.onreadystatechange = function()
+{
+if(x.readyState == 4 && x.status==200)
+{
+document.getElementById("show").innerHTML = x.responseText;
+}
+}
+}
+</script>
+Actor Name: <input type="text" name='n' id='n'"> <br>
+
+
+<button onclick="display()" > Print</button>
+<h1 id="show"> </h1>
+</body>
+</html>
+
+Create php file : actor.php
+<?php
+$aname=$_POST['aname'];
+$con=pg_connect("host=localhost dbname=root user=root") or die("Could not connect");
+$qry="select mname,release_year from movie,actor where movie.mno=actor.mno and aname=$aname";
+$rs=pg_query($con,$qry) or die("Unable to execute query");
+if($rs!=null)
+{
+echo"<table border=0>";
+echo"<tr><td>Movie Name</td><td>Release Year</td></tr>";
+while($row=pg_fetch_row($rs))
+{
+echo"<tr>";
+echo"<td>".$row[0]."</td>";
+echo"<td>".$row[1]."</td>";
+echo"</tr>";
+}
+echo"</table>";
+}
+else
+echo"NO records found";
+pg_close($con);
